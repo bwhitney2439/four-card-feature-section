@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:200, 400, 600");
+
+// Variables
+$generic-box-shadow: 5px 10px 18px #888888;
+$generic-border: 1px solid #f1f1f1;
+
+// General Settings
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100%;
+}
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  //   line-height: 0.8;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  //   background: lightgrey;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+}
+
+.container {
+  text-align: center;
+  width: auto;
+  background: white;
+  //   position: absolute;
+  //   left: 50%;
+  //   top: 50%;
+  //   transform: translate(-50%, -50%);
+  padding: 40px 120px 40px 120px;
+  //   box-shadow: $generic-box-shadow;
+  display: flex;
+  flex-direction: column;
+}
+
+// Mixins
+@mixin card($color) {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 280px;
+  height: 200px;
+  // border: $generic-border;
+  border-radius: 4px;
+  // border-top: 3px transparent hsl(0, 78%, 62%);
+  margin: 12px;
+  border-top: 4px solid $color;
+  box-shadow: $generic-box-shadow;
+  justify-content: space-between;
+  padding: 15px 25px 25px 25px;
+  font-size: 15px;
+}
+
+// Header
+.header {
+  margin: auto;
+  width: 500px;
+
+  h1 {
+    color: hsl(234, 12%, 34%);
+    &:nth-child(1) {
+      font-weight: 200;
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+
+    &:nth-child(2) {
+      margin-top: 0;
+      font-weight: 600;
+    }
+  }
+
+  p {
+    color: hsl(229, 6%, 66%);
+    margin: auto;
+  }
+}
+
+// Content
+
+.card-container {
+  .row {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+
+    h2 {
+      font-weight: 600;
+      color: hsl(234, 12%, 34%);
+      padding: 0;
+      margin: 0;
+      font-size: 15px;
+    }
+
+    p {
+      margin: 0;
+      margin-top: 5px;
+      color: hsl(229, 6%, 66%);
+      font-weight: 400;
+      font-size: 11px;
+    }
+    svg {
+      align-self: flex-end;
+    }
+
+    .col1 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .card-teambuilder {
+        @include card(hsl(0, 78%, 62%));
+      }
+    }
+
+    .col2 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+
+      .card-calculator {
+        @include card(hsl(212, 86%, 64%));
+      }
+
+      .card-karma {
+        @include card(hsl(34, 97%, 64%));
+      }
+    }
+
+    .col3 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .card-supervisor {
+        @include card(hsl(180, 62%, 55%));
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .container {
+    padding: 20px;
+  }
+  .header {
+    width: 275px;
+    font-size: 11px;
+    margin-bottom: 10px;
+    margin-top: 40px;
+    text-align: unset;
+  }
+}
